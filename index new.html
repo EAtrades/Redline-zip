@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redline — TradingView Indicator for NQ &amp; ES</title>
+<meta name="description" content="Redline flags where the market is exhausted and could top or bottom out, and maps the liquidity and FVGs price is drawing toward. NQ / ES futures.">
+<meta property="og:title" content="Redline — Know when the market is redlining">
+<meta property="og:image" content="images/chart-nq-grab.jpg">
+<link rel="icon" href="images/redline-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&amp;family=Barlow+Condensed:wght@600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#070708}
+a{color:#FF5A74}a:hover{color:#FF8397}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+</style>
+<style>html{scroll-behavior:smooth}img{max-width:100%}</style>
+</head>
+<body>
+<div style="background: #070708; color: #F4F4F5; font-family: Barlow, system-ui, sans-serif; min-height: 100vh">
+
+<!-- NAV -->
+<header style="border-bottom: 1px solid #1E1E21; background: #070708">
+<nav aria-label="Main" style="max-width: 1240px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#top" aria-label="Redline home" style="display: flex; align-items: center; min-height: 44px">
+<img src="images/redline-logo.png" alt="Redline" style="height: 34px; width: auto; display: block">
+</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 16px; font-weight: 500">
+<a href="#concept" style="color: #C4C4CC; text-decoration: none">The redline</a>
+<a href="#features" style="color: #C4C4CC; text-decoration: none">Features</a>
+<a href="#charts" style="color: #C4C4CC; text-decoration: none">On the chart</a>
+<a href="#pricing" style="color: #C4C4CC; text-decoration: none">Pricing</a>
+<a href="#faq" style="color: #C4C4CC; text-decoration: none">FAQ</a>
+<a href="#pricing" style="background: #E22646; color: #FFFFFF; font-weight: 700; text-decoration: none; padding: 12px 22px; border-radius: 6px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; letter-spacing: 0.02em">Get Redline</a>
+</div>
+</nav>
+</header>
+
+<!-- HERO -->
+<section id="top" style="max-width: 1240px; margin: 0 auto; padding: 88px 24px 40px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #FF5A74; text-transform: uppercase">TradingView indicator · NQ / ES futures</div>
+<h1 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 84px; line-height: 0.95; font-weight: 800; letter-spacing: -0.01em; text-transform: uppercase; max-width: 960px">Know when the market is <span style="color: #E22646">redlining.</span></h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.6; color: #B4B4BC; max-width: 680px">Push an engine past the redline and it runs out of gas. Price does the same. Redline flags the zones where the move is exhausted and the market could top or bottom out, and maps the liquidity and FVGs it's drawing toward.</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; padding-top: 8px">
+<a href="#pricing" style="background: #E22646; color: #FFFFFF; font-weight: 700; font-size: 17px; text-decoration: none; padding: 16px 30px; border-radius: 6px; min-height: 54px; box-sizing: border-box; display: inline-flex; align-items: center; letter-spacing: 0.02em">Get Redline · $30/mo</a>
+<a href="#charts" style="color: #F4F4F5; font-weight: 600; font-size: 17px; text-decoration: none; padding: 16px 30px; border-radius: 6px; border: 1px solid #34343A; min-height: 54px; box-sizing: border-box; display: inline-flex; align-items: center">See it on a live chart</a>
+</div>
+<div style="font-size: 15px; color: #8B8B94">Cancel anytime · Access through Whop · Free Discord included</div>
+</section>
+
+<section aria-label="Redline on an NQ chart" style="max-width: 1240px; margin: 0 auto; padding: 24px 24px 0">
+<figure style="margin: 0; border: 1px solid rgba(226, 38, 70, 0.55); border-radius: 10px; overflow: hidden; background: #000; box-shadow: 0 0 0 4px #0D0D0F, 0 30px 80px rgba(226, 38, 70, 0.16)">
+<img src="images/chart-nq-grab.jpg" alt="Redline on NQ and ES charts: a red redline level marks a sell-side liquidity grab on fast volume at the lows, before price reverses up into the 4H FVG and NY high" style="width: 100%; height: auto; display: block">
+</figure>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 32px; padding: 20px 0 0; font-size: 15px; color: #A1A1AA">
+<span style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="display: block; width: 26px; height: 3px; background: #E22646"></span>Redline: exhaustion level</span>
+<span style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="display: block; width: 18px; height: 12px; background: rgba(160, 120, 220, 0.35); border: 1px solid rgba(180, 140, 240, 0.6)"></span>Fair value gaps</span>
+<span style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="display: block; width: 26px; height: 2px; background: #F5B8C8"></span>BSL / SSL liquidity</span>
+</div>
+</section>
+
+<!-- CONCEPT -->
+<section id="concept" style="max-width: 1240px; margin: 0 auto; padding: 128px 24px 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
+<div style="flex: 1 1 360px; min-width: 0; display: flex; justify-content: center">
+<svg viewBox="0 0 320 300" style="width: 100%; max-width: 420px; height: auto; display: block" aria-hidden="true">
+<path d="M69.5 255.5 A128 128 0 1 1 284.0 133.2" fill="none" stroke="#3A3A3F" stroke-width="10" stroke-linecap="butt"></path>
+<path d="M284.0 133.2 A128 128 0 0 1 250.5 255.5" fill="none" stroke="#E22646" stroke-width="10"></path>
+<line x1="78.0" y1="247.0" x2="90.7" y2="234.3" stroke="#D4D4D8" stroke-width="3"></line>
+<text x="103.4" y="226.6" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="600" fill="#A1A1AA">0</text>
+<line x1="68.9" y1="236.8" x2="75.2" y2="231.9" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="61.1" y1="225.6" x2="67.9" y2="221.4" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="54.7" y1="213.6" x2="61.9" y2="210.2" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="49.7" y1="200.8" x2="57.3" y2="198.4" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="46.2" y1="187.6" x2="63.9" y2="184.1" stroke="#D4D4D8" stroke-width="3"></line>
+<text x="81.5" y="185.6" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="600" fill="#A1A1AA">1</text>
+<line x1="44.4" y1="174.1" x2="52.3" y2="173.5" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="44.1" y1="160.4" x2="52.1" y2="160.8" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="45.4" y1="146.9" x2="53.3" y2="148.1" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="48.4" y1="133.5" x2="56.1" y2="135.7" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="52.8" y1="120.6" x2="69.5" y2="127.5" stroke="#D4D4D8" stroke-width="3"></line>
+<text x="86.1" y="139.4" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="600" fill="#A1A1AA">2</text>
+<line x1="58.8" y1="108.3" x2="65.8" y2="112.2" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="66.2" y1="96.8" x2="72.6" y2="101.5" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="74.8" y1="86.3" x2="80.7" y2="91.7" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="84.7" y1="76.8" x2="89.9" y2="82.9" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="95.6" y1="68.5" x2="105.6" y2="83.5" stroke="#D4D4D8" stroke-width="3"></line>
+<text x="115.6" y="103.5" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="600" fill="#A1A1AA">3</text>
+<line x1="107.3" y1="61.6" x2="111.0" y2="68.8" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="119.9" y1="56.2" x2="122.6" y2="63.7" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="132.9" y1="52.2" x2="134.8" y2="60.0" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="146.4" y1="49.8" x2="147.3" y2="57.7" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="160.0" y1="49.0" x2="160.0" y2="67.0" stroke="#D4D4D8" stroke-width="3"></line>
+<text x="160.0" y="90.0" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="600" fill="#A1A1AA">4</text>
+<line x1="173.6" y1="49.8" x2="172.7" y2="57.7" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="187.1" y1="52.2" x2="185.2" y2="60.0" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="200.1" y1="56.2" x2="197.4" y2="63.7" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="212.7" y1="61.6" x2="209.0" y2="68.8" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="224.4" y1="68.5" x2="214.4" y2="83.5" stroke="#D4D4D8" stroke-width="3"></line>
+<text x="204.4" y="103.5" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="600" fill="#A1A1AA">5</text>
+<line x1="235.3" y1="76.8" x2="230.1" y2="82.9" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="245.2" y1="86.3" x2="239.3" y2="91.7" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="253.8" y1="96.8" x2="247.4" y2="101.5" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="261.2" y1="108.3" x2="254.2" y2="112.2" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="267.2" y1="120.6" x2="250.5" y2="127.5" stroke="#D4D4D8" stroke-width="3"></line>
+<text x="233.9" y="139.4" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="600" fill="#A1A1AA">6</text>
+<line x1="271.6" y1="133.5" x2="263.9" y2="135.7" stroke="#55555C" stroke-width="1.5"></line>
+<line x1="274.6" y1="146.9" x2="266.7" y2="148.1" stroke="#E22646" stroke-width="1.5"></line>
+<line x1="275.9" y1="160.4" x2="267.9" y2="160.8" stroke="#E22646" stroke-width="1.5"></line>
+<line x1="275.6" y1="174.1" x2="267.7" y2="173.5" stroke="#E22646" stroke-width="1.5"></line>
+<line x1="273.8" y1="187.6" x2="256.1" y2="184.1" stroke="#E22646" stroke-width="3"></line>
+<text x="238.5" y="185.6" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="600" fill="#FF5A74">7</text>
+<line x1="270.3" y1="200.8" x2="262.7" y2="198.4" stroke="#E22646" stroke-width="1.5"></line>
+<line x1="265.3" y1="213.6" x2="258.1" y2="210.2" stroke="#E22646" stroke-width="1.5"></line>
+<line x1="258.9" y1="225.6" x2="252.1" y2="221.4" stroke="#E22646" stroke-width="1.5"></line>
+<line x1="251.1" y1="236.8" x2="244.8" y2="231.9" stroke="#E22646" stroke-width="1.5"></line>
+<line x1="242.0" y1="247.0" x2="229.3" y2="234.3" stroke="#E22646" stroke-width="3"></line>
+<text x="216.6" y="226.6" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="16" font-weight="600" fill="#FF5A74">8</text>
+<line x1="160" y1="165" x2="263.2" y2="178.0" stroke="#E22646" stroke-width="4" stroke-linecap="round"></line>
+<circle cx="160" cy="165" r="12" fill="#111113" stroke="#E22646" stroke-width="3"></circle>
+<text x="160" y="232" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#8B8B94">MOMENTUM</text>
+<text x="160" y="290" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-size="20" font-weight="700" letter-spacing="3" fill="#FF5A74">EXHAUSTED</text>
+</svg>
+</div>
+<div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #FF5A74; text-transform: uppercase">Why it's called Redline</div>
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 56px; line-height: 1; font-weight: 800; text-transform: uppercase">Every move has a limit.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.65; color: #B4B4BC">Rev a car into the red and the engine has nothing left. Markets work the same way: a run into liquidity burns out, and that's where reversals start. Redline shows you where that limit is.</p>
+</div>
+<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; border-top: 1px solid #1E1E21">
+<li style="display: flex; gap: 20px; padding: 18px 0; border-bottom: 1px solid #1E1E21">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #8B8B94; padding-top: 3px">01</span>
+<div><div style="font-size: 18px; font-weight: 700">Price revs</div><div style="font-size: 16px; color: #A1A1AA; padding-top: 4px; line-height: 1.55">A push toward buy-side or sell-side liquidity.</div></div>
+</li>
+<li style="display: flex; gap: 20px; padding: 18px 0; border-bottom: 1px solid #1E1E21">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #8B8B94; padding-top: 3px">02</span>
+<div><div style="font-size: 18px; font-weight: 700">It hits the redline</div><div style="font-size: 16px; color: #A1A1AA; padding-top: 4px; line-height: 1.55">Liquidity gets grabbed on fast volume. Redline draws the line right there.</div></div>
+</li>
+<li style="display: flex; gap: 20px; padding: 18px 0; border-bottom: 1px solid #1E1E21">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #E22646; padding-top: 3px">03</span>
+<div><div style="font-size: 18px; font-weight: 700">You're ready for the turn</div><div style="font-size: 16px; color: #A1A1AA; padding-top: 4px; line-height: 1.55">Potential top or bottom marked, with the next draw and FVGs already on your chart.</div></div>
+</li>
+</ol>
+</div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" style="max-width: 1240px; margin: 0 auto; padding: 120px 24px 40px">
+<div style="max-width: 720px; display: flex; flex-direction: column; gap: 16px; padding-bottom: 52px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #FF5A74; text-transform: uppercase">What's on your chart</div>
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 56px; line-height: 1; font-weight: 800; text-transform: uppercase">Everything you need. Nothing you don't.</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: #1E1E21; border: 1px solid #1E1E21; border-radius: 10px; overflow: hidden">
+<div style="background: #0D0D0F; padding: 32px; display: flex; flex-direction: column; gap: 12px">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#E22646" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="2" y1="16" x2="22" y2="16"></line><path d="M4 6l3 4 3-2 3 6 2-3"></path></svg>
+<h3 style="margin: 0; font-size: 21px; font-weight: 700">Redline exhaustion levels</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #A1A1AA">The red line. Flags liquidity grabs on fast volume, the spots where price is likely to top or bottom out.</p>
+</div>
+<div style="background: #0D0D0F; padding: 32px; display: flex; flex-direction: column; gap: 12px">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#E22646" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="8" width="18" height="8" rx="1"></rect><line x1="8" y1="4" x2="8" y2="20"></line><line x1="16" y1="4" x2="16" y2="20"></line></svg>
+<h3 style="margin: 0; font-size: 21px; font-weight: 700">Fair value gaps</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #A1A1AA">15m, 30m and 4H FVGs plus inversions, projected onto your execution chart so context never leaves the screen.</p>
+</div>
+<div style="background: #0D0D0F; padding: 32px; display: flex; flex-direction: column; gap: 12px">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#E22646" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="5" x2="21" y2="5"></line><line x1="3" y1="19" x2="21" y2="19" stroke-dasharray="3 3"></line><path d="M12 9v6M9 12l3 3 3-3"></path></svg>
+<h3 style="margin: 0; font-size: 21px; font-weight: 700">Draws on liquidity</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #A1A1AA">BSL and SSL from the 2m to the 30m, plus Asia and NY highs and lows, so you know where price is headed next.</p>
+</div>
+<div style="background: #0D0D0F; padding: 32px; display: flex; flex-direction: column; gap: 12px">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#E22646" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><line x1="3" y1="10" x2="21" y2="10"></line><line x1="10" y1="10" x2="10" y2="20"></line></svg>
+<h3 style="margin: 0; font-size: 21px; font-weight: 700">Bias dashboard</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #A1A1AA">5m, 15m and 1H bias, volume and every key level price in one table in the corner of your chart.</p>
+</div>
+<div style="background: #0D0D0F; padding: 32px; display: flex; flex-direction: column; gap: 12px">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#E22646" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 16l5-6 4 3 4-7 5 5"></path><path d="M3 20l5-4 4 2 4-3 5 2" opacity="0.5"></path></svg>
+<h3 style="margin: 0; font-size: 21px; font-weight: 700">NQ / ES SMTs</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #A1A1AA">Divergence between the two indices flagged at the swing, so you can confirm a reversal before taking it.</p>
+</div>
+<div style="background: #0D0D0F; padding: 32px; display: flex; flex-direction: column; gap: 12px">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#E22646" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="5" x2="21" y2="5"></line><line x1="3" y1="10" x2="21" y2="10" stroke-dasharray="2 3"></line><line x1="3" y1="14" x2="21" y2="14"></line><line x1="3" y1="19" x2="21" y2="19" stroke-dasharray="2 3"></line></svg>
+<h3 style="margin: 0; font-size: 21px; font-weight: 700">Trade Setup</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #A1A1AA">Plots entry, break-even, take-profit and stop for each Redline idea, so you can practice the setup rep by rep.</p>
+</div>
+</div>
+</section>
+
+<!-- ON THE CHART -->
+<section id="charts" style="max-width: 1240px; margin: 0 auto; padding: 120px 24px 40px">
+<div style="max-width: 720px; display: flex; flex-direction: column; gap: 16px; padding-bottom: 48px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #FF5A74; text-transform: uppercase">Real charts, real sessions</div>
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 56px; line-height: 1; font-weight: 800; text-transform: uppercase">Drawn before the turn.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #B4B4BC">Unedited captures from the same session. The red line prints at the grab; what happens next is on the chart.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(440px, 1fr)); gap: 28px">
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="border: 1px solid #26262A; border-radius: 8px; overflow: hidden; background: #000"><img src="images/chart-nq-grab.jpg" alt="NQ 2-minute chart: Redline marks the sell-side liquidity grab at 29,770 on fast volume, then price rallies into the 4H FVG and NY high near 30,063" style="width: 100%; height: auto; display: block"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #8B8B94">NQ · 2m · Oct 15, 2026</span>
+<span style="font-size: 17px; line-height: 1.5; color: #D4D4D8">Redline prints at the SSL grab on fast volume. Price turns and runs into the 4H FVG and NY high.</span>
+</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="border: 1px solid #26262A; border-radius: 8px; overflow: hidden; background: #000"><img src="images/chart-es-grab.jpg" alt="ES 2-minute chart: Redline marks the 2-minute sell-side liquidity grab near 7,769 and price lifts off it" style="width: 100%; height: auto; display: block"></div>
+<figcaption style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #8B8B94">ES · 2m · Oct 15, 2026</span>
+<span style="font-size: 17px; line-height: 1.5; color: #D4D4D8">Same idea on ES: the 2m sell-side grab gets marked, and price lifts off the line.</span>
+</figcaption>
+</figure>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 96px 0 32px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #FF5A74; text-transform: uppercase">From the Discord</div>
+<h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 44px; line-height: 1; font-weight: 800; text-transform: uppercase">What members are posting.</h3>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; align-items: start">
+<figure style="margin: 0; background: #0D0D0F; border: 1px solid #1E1E21; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column">
+<img src="images/review-funded.png" alt="Discord post from a funded member: 'Up 700 on funded, 2 more winning trades till payout,' with an MNQ 5-minute chart showing a Redline liquidity grab at the high before the drop" style="width: 100%; height: auto; display: block">
+<figcaption style="padding: 18px 22px; display: flex; flex-direction: column; gap: 6px; border-top: 1px solid #1E1E21">
+<span style="font-size: 18px; line-height: 1.45; color: #F4F4F5">“Up 700 on funded, 2 more winning trades till payout.”</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #8B8B94">Funded member · MNQ · Oct 4, 2026</span>
+</figcaption>
+</figure>
+<figure style="margin: 0; background: #0D0D0F; border: 1px solid #1E1E21; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column">
+<img src="images/review-louis.png" alt="Discord post from louis showing a phone screenshot of an NQ 2-minute chart with Redline levels and a sell order executed at 29,671.75" style="width: 100%; height: auto; display: block">
+<figcaption style="padding: 18px 22px; display: flex; flex-direction: column; gap: 6px; border-top: 1px solid #1E1E21">
+<span style="font-size: 18px; line-height: 1.45; color: #F4F4F5">Short on NQ off the Redline levels, taken from his phone.</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #8B8B94">louis · NQ · Aug 11, 2026</span>
+</figcaption>
+</figure>
+<figure style="margin: 0; background: #0D0D0F; border: 1px solid #1E1E21; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column">
+<img src="images/review-kunal.png" alt="Discord post from kunal: 'Indicator W on xauusd' with a gold chart showing a Redline level at the low before price ran up" style="width: 100%; height: auto; display: block">
+<figcaption style="padding: 18px 22px; display: flex; flex-direction: column; gap: 6px; border-top: 1px solid #1E1E21">
+<span style="font-size: 18px; line-height: 1.45; color: #F4F4F5">“Indicator W on XAUUSD.”</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #8B8B94">kunal · Gold · Oct 9, 2026</span>
+</figcaption>
+</figure>
+</div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="max-width: 1240px; margin: 0 auto; padding: 120px 24px 40px">
+<div style="max-width: 720px; display: flex; flex-direction: column; gap: 16px; padding-bottom: 48px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #FF5A74; text-transform: uppercase">Pricing</div>
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 56px; line-height: 1; font-weight: 800; text-transform: uppercase">One price. Every update.</h2>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch">
+<div style="flex: 2 1 440px; min-width: 0; background: #0D0D0F; border: 1px solid rgba(226, 38, 70, 0.7); border-radius: 12px; padding: 40px; display: flex; flex-direction: column; gap: 28px; box-shadow: 0 24px 70px rgba(226, 38, 70, 0.12)">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px">
+<img src="images/redline-logo.png" alt="Redline" style="height: 40px; width: auto; display: block">
+<div><span style="font-family: 'Barlow Condensed', sans-serif; font-size: 64px; font-weight: 800; line-height: 1">$30</span><span style="font-size: 18px; color: #A1A1AA"> / month</span></div>
+</div>
+<ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; font-size: 17px; color: #D4D4D8">
+<li style="display: flex; gap: 12px; align-items: center"><span aria-hidden="true" style="display: block; width: 14px; height: 3px; background: #E22646; flex: none"></span>Redline exhaustion levels</li>
+<li style="display: flex; gap: 12px; align-items: center"><span aria-hidden="true" style="display: block; width: 14px; height: 3px; background: #E22646; flex: none"></span>15m / 30m / 4H FVGs</li>
+<li style="display: flex; gap: 12px; align-items: center"><span aria-hidden="true" style="display: block; width: 14px; height: 3px; background: #E22646; flex: none"></span>BSL / SSL draws on liquidity</li>
+<li style="display: flex; gap: 12px; align-items: center"><span aria-hidden="true" style="display: block; width: 14px; height: 3px; background: #E22646; flex: none"></span>Bias dashboard</li>
+<li style="display: flex; gap: 12px; align-items: center"><span aria-hidden="true" style="display: block; width: 14px; height: 3px; background: #E22646; flex: none"></span>NQ / ES SMTs</li>
+<li style="display: flex; gap: 12px; align-items: center"><span aria-hidden="true" style="display: block; width: 14px; height: 3px; background: #E22646; flex: none"></span>Trade Setup + all future updates</li>
+</ul>
+<a href="https://whop.com/redline-1cff/red-line-indicator-access/" target="_blank" rel="noopener" style="background: #E22646; color: #FFFFFF; font-weight: 700; font-size: 18px; text-decoration: none; padding: 18px 28px; border-radius: 6px; text-align: center; min-height: 58px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; letter-spacing: 0.02em">Get Redline on Whop</a>
+<div style="font-size: 15px; color: #8B8B94; text-align: center">Cancel anytime. Access is added to your TradingView username after checkout.</div>
+</div>
+<div style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<div style="background: #0D0D0F; border: 1px solid #1E1E21; border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #A1A1AA">FREE</div>
+<h3 style="margin: 0; font-size: 21px; font-weight: 700">Discord + live sessions</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #A1A1AA">Watch Redline used live before you buy.</p>
+<a href="https://discord.gg/kCCsgNcyH" target="_blank" rel="noopener" style="font-weight: 600; font-size: 16px; padding-top: 6px; min-height: 44px; display: inline-flex; align-items: center">Join the Discord →</a>
+</div>
+<div style="background: #0D0D0F; border: 1px solid #1E1E21; border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #A1A1AA">$850 · APPLICATION</div>
+<h3 style="margin: 0; font-size: 21px; font-weight: 700">Mentorship</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #A1A1AA">Learn the full model behind Redline with direct feedback on your trades.</p>
+<a href="https://discord.gg/kCCsgNcyH" target="_blank" rel="noopener" style="font-weight: 600; font-size: 16px; padding-top: 6px; min-height: 44px; display: inline-flex; align-items: center">Apply in the Discord →</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="max-width: 860px; margin: 0 auto; padding: 120px 24px 40px">
+<h2 style="margin: 0 0 32px; font-family: 'Barlow Condensed', sans-serif; font-size: 56px; line-height: 1; font-weight: 800; text-transform: uppercase">Questions</h2>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #1E1E21">
+<details style="border-bottom: 1px solid #1E1E21; padding: 22px 0">
+<summary style="font-size: 19px; font-weight: 600; display: flex; justify-content: space-between; gap: 16px; min-height: 28px">What does the red line mean?<span aria-hidden="true" style="color: #E22646">+</span></summary>
+<p style="margin: 14px 0 0; font-size: 17px; line-height: 1.65; color: #A1A1AA">It marks a liquidity grab on fast volume: a spot where the move may be exhausted and price could top or bottom out. It's a level to watch for a reaction, not a guaranteed reversal.</p>
+</details>
+<details style="border-bottom: 1px solid #1E1E21; padding: 22px 0">
+<summary style="font-size: 19px; font-weight: 600; display: flex; justify-content: space-between; gap: 16px; min-height: 28px">Is this a signal service?<span aria-hidden="true" style="color: #E22646">+</span></summary>
+<p style="margin: 14px 0 0; font-size: 17px; line-height: 1.65; color: #A1A1AA">No. Redline marks levels and plots setups; you make the call. It makes your read faster and more consistent.</p>
+</details>
+<details style="border-bottom: 1px solid #1E1E21; padding: 22px 0">
+<summary style="font-size: 19px; font-weight: 600; display: flex; justify-content: space-between; gap: 16px; min-height: 28px">Which markets and timeframes?<span aria-hidden="true" style="color: #E22646">+</span></summary>
+<p style="margin: 14px 0 0; font-size: 17px; line-height: 1.65; color: #A1A1AA">Built for NQ and ES futures, including the micros. Executed on the 1–5m with 15m, 30m and 4H context.</p>
+</details>
+<details style="border-bottom: 1px solid #1E1E21; padding: 22px 0">
+<summary style="font-size: 19px; font-weight: 600; display: flex; justify-content: space-between; gap: 16px; min-height: 28px">Do I need to know ICT / SMC?<span aria-hidden="true" style="color: #E22646">+</span></summary>
+<p style="margin: 14px 0 0; font-size: 17px; line-height: 1.65; color: #A1A1AA">It helps. If you're newer, join the free Discord and watch a few live sessions to see how each level is used.</p>
+</details>
+<details style="border-bottom: 1px solid #1E1E21; padding: 22px 0">
+<summary style="font-size: 19px; font-weight: 600; display: flex; justify-content: space-between; gap: 16px; min-height: 28px">How do I get access?<span aria-hidden="true" style="color: #E22646">+</span></summary>
+<p style="margin: 14px 0 0; font-size: 17px; line-height: 1.65; color: #A1A1AA">Subscribe on Whop, submit your TradingView username, and the invite-only script is added to your account. [ADD ACCESS TIMEFRAME]</p>
+</details>
+</div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="max-width: 1240px; margin: 0 auto; padding: 100px 24px">
+<div style="border: 1px solid rgba(226, 38, 70, 0.55); border-radius: 14px; padding: 72px 32px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px; background: #0D0D0F">
+<img src="images/redline-logo.png" alt="Redline" style="height: 56px; width: auto; display: block">
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-size: 52px; line-height: 1; font-weight: 800; text-transform: uppercase; max-width: 720px">Stop guessing where it turns.</h2>
+<p style="margin: 0; font-size: 18px; color: #B4B4BC">Start with the free Discord, or put Redline on your chart today.</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; padding-top: 8px">
+<a href="#pricing" style="background: #E22646; color: #FFFFFF; font-weight: 700; font-size: 17px; text-decoration: none; padding: 16px 30px; border-radius: 6px; min-height: 54px; box-sizing: border-box; display: inline-flex; align-items: center">Get Redline · $30/mo</a>
+<a href="https://discord.gg/kCCsgNcyH" target="_blank" rel="noopener" style="color: #F4F4F5; font-weight: 600; font-size: 17px; text-decoration: none; padding: 16px 30px; border-radius: 6px; border: 1px solid #34343A; min-height: 54px; box-sizing: border-box; display: inline-flex; align-items: center">Join the Discord</a>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer style="border-top: 1px solid #1E1E21">
+<div style="max-width: 1240px; margin: 0 auto; padding: 40px 24px 56px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px">
+<div style="display: flex; align-items: center; gap: 14px">
+<img src="images/redline-logo.png" alt="Redline" style="height: 24px; width: auto; display: block">
+<span style="font-size: 15px; color: #8B8B94">by EA Trades</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px; font-size: 15px">
+<a href="https://www.instagram.com/redlineindicator" target="_blank" rel="noopener" style="color: #A1A1AA; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center">Instagram</a>
+<a href="https://discord.gg/kCCsgNcyH" target="_blank" rel="noopener" style="color: #A1A1AA; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center">Discord</a>
+<a href="https://whop.com/redline-1cff/red-line-indicator-access/" target="_blank" rel="noopener" style="color: #A1A1AA; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center">Whop</a>
+</div>
+</div>
+<p style="margin: 0; font-size: 13px; line-height: 1.6; color: #8B8B94; max-width: 920px">Trading futures involves substantial risk of loss and is not suitable for every investor. Redline is an educational charting tool, not financial advice or a recommendation to buy or sell any instrument. Charts shown are examples; past performance is not indicative of future results.</p>
+</div>
+</footer>
+
+</div>
+</body>
+</html>
